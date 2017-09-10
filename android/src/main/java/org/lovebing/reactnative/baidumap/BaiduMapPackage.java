@@ -30,7 +30,6 @@ public class BaiduMapPackage implements ReactPackage {
         baiduMapViewManager.initSDK(context);
     }
 
-    @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         return Arrays.<NativeModule>asList(
                 new BaiduMapModule(reactContext),
@@ -38,7 +37,6 @@ public class BaiduMapPackage implements ReactPackage {
         );
     }
 
-    @Override
     public List<ViewManager> createViewManagers(
             ReactApplicationContext reactContext) {
         return Arrays.<ViewManager>asList(
@@ -46,7 +44,6 @@ public class BaiduMapPackage implements ReactPackage {
         );
     }
 
-    @Override
     public List<Class<? extends JavaScriptModule>> createJSModules() {
         return Collections.emptyList();
     }

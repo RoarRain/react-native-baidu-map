@@ -104,7 +104,7 @@ public class GeolocationModule extends BaseModule
                 .location(getBaiduCoorFromGPSCoor(new LatLng(lat, lng))));
     }
 
-    @Override
+    
     public void onReceiveLocation(BDLocation bdLocation) {
         WritableMap params = Arguments.createMap();
         params.putDouble("latitude", bdLocation.getLatitude());
@@ -128,7 +128,7 @@ public class GeolocationModule extends BaseModule
         locationClient.stop();
     }
 
-    @Override
+    
     public void onGetGeoCodeResult(GeoCodeResult result) {
         WritableMap params = Arguments.createMap();
         if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
@@ -141,7 +141,7 @@ public class GeolocationModule extends BaseModule
         sendEvent("onGetGeoCodeResult", params);
     }
 
-    @Override
+    
     public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
         WritableMap params = Arguments.createMap();
         if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {

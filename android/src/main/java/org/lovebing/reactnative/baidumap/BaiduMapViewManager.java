@@ -61,7 +61,7 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
         return mapView;
     }
 
-    @Override
+    
     public void addView(MapView parent, View child, int index) {
         if(childrenPoints != null) {
             Point point = new Point();
@@ -191,17 +191,17 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
                 return writableMap;
             }
 
-            @Override
+            
             public void onMapStatusChangeStart(MapStatus mapStatus) {
                 sendEvent(mapView, "onMapStatusChangeStart", getEventParams(mapStatus));
             }
 
-            @Override
+            
             public void onMapStatusChange(MapStatus mapStatus) {
                 sendEvent(mapView, "onMapStatusChange", getEventParams(mapStatus));
             }
 
-            @Override
+            
             public void onMapStatusChangeFinish(MapStatus mapStatus) {
                 if(mMarkerText.getVisibility() != View.GONE) {
                     mMarkerText.setVisibility(View.GONE);
@@ -211,14 +211,14 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
         });
 
         map.setOnMapLoadedCallback(new BaiduMap.OnMapLoadedCallback() {
-            @Override
+            
             public void onMapLoaded() {
                 sendEvent(mapView, "onMapLoaded", null);
             }
         });
 
         map.setOnMapClickListener(new BaiduMap.OnMapClickListener() {
-            @Override
+            
             public void onMapClick(LatLng latLng) {
                 mapView.getMap().hideInfoWindow();
                 WritableMap writableMap = Arguments.createMap();
@@ -227,7 +227,7 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
                 sendEvent(mapView, "onMapClick", writableMap);
             }
 
-            @Override
+            
             public boolean onMapPoiClick(MapPoi mapPoi) {
                 WritableMap writableMap = Arguments.createMap();
                 writableMap.putString("name", mapPoi.getName());
@@ -239,7 +239,7 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
             }
         });
         map.setOnMapDoubleClickListener(new BaiduMap.OnMapDoubleClickListener() {
-            @Override
+            
             public void onMapDoubleClick(LatLng latLng) {
                 WritableMap writableMap = Arguments.createMap();
                 writableMap.putDouble("latitude", latLng.latitude);
@@ -249,7 +249,7 @@ public class BaiduMapViewManager extends ViewGroupManager<MapView> {
         });
 
         map.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
-            @Override
+            
             public boolean onMarkerClick(Marker marker) {
                 if(marker.getTitle().length() > 0) {
                     mMarkerText.setText(marker.getTitle());
